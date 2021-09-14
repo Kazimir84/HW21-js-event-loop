@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>        
+    <meta charset="utf-8">  
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Playfair+Display&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./style.css">
+    <title>HW21-js-event-loop</title>
+  </head>
+<body>		
+<div>HW21-js-event-loop</div>
+
+<div>
+  1. Создайте на вашем github репозиторий с именем HW21-js-event-loop. Все результаты нужно запушить в ваш репозиторий и прикрепить ссылку на hillel портале.<br>
+  2. Создайте index.html в котором подключите js script.<br>
+  3. Подготовка<br>
+  3.1.1 Установить если node и json-server не установлены:<br>
+  https://nodejs.org/uk/  - LTS версию<br>
+  3.1.2 Затем выполнить в консоле npm install -g json-server<br>
+  3.2 Создайте в папке с заданием:<br>
+  3.2.1 Создайте папку db<br>
+  3.2.2 Создайте в папке db.json файл с именем db. В который поместите содержимое https://gist.github.com/OlegRovenskyi/e0eea5625fc1e25f367ec7c55a3e1db9. Должны получить следующую структуру: db/db.json<br>
+  3.3 Чтобы запустить сервер нужно в консоле или терменале зайти в папку с файлом db.json и запустить команд: json-server --watch db.json<br>
+  3.4 чтобы остановить сервер нажмите вместе комбинацию клавиш в консоли: CTRL C<br>
+  4. Задание:<br>
+  Использовать fetch для получения списка задач и работы с ним.<br>
+  4.1 При загрузке страницы нужно вывести список всех задач в html.<br>
+  4.2 Под списком задач разместить форму для создания задачи:<br>
+  инпут для title. По умолчанию задача создаются в in progress. Нужно установить completed: false.<br>
+  4.3 При нажатии на кнопку create нужно создать задачу и очистить input. Новую задачу нужно добавить в список в html и отправить запрос на создание.<br>
+  4.4 Каждое дело в списке может быть в двух состояниях (нужно сделать - желтый фон и сделано - зеленый фон). По умолчанию, дело в список добавляется в статусе нужно сделать. При клике на него, состояние меняется на противоположное.<br>
+  4.5 При обновлении статуса, статус также нужно обновить на сервере.<br>
+  4.6 Пользователь может удалять любые дела. При удалении нужно его удалить в DOM и отправить запрос на удаление.<br>
+  5. Полезная информация:<br>
+  5.1 API<br>
+  5.1.1 get - http://localhost:3000/todos // получение всех задач<br>
+  5.1.2 post - http://localhost:3000/todos // создание задачи  (не забываем передать данные)!!!! <br>
+  5.1.3 put - http://localhost:3000/todos/id  // Вместо id нужно подставить id задачи которую хотим обновить (не забываем передать данные)<br>
+  5.1.4 delete - http://localhost:3000/todos/id Вместо id нужно подставить id задачи которую хотим удалить. (вторым аргументом для fetch нужно указать метод).<br>
+  6. Кому интересно более детальная информация о json-server: https://github.com/typicode/json-server<br>
+  <br>
+</div>
+<div id="containerList">
+  <ul id="list"></ul>
+</div>
+<div class="mainDiv"> 
+  <form  name="posts" id="formId">
+    Title<input id="inputTitle" type="text" title='title'>    
+    <button id="submit" type="submit">Create</button>
+    <div id="posts"></div>                
+  </form>
+</div>
+  <script src="./main.js" defer></script>
+</body>
+</html>
